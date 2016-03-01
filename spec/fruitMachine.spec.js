@@ -11,4 +11,9 @@ describe('fruit machine', function() {
   it('stores possible results in an array', function() {
     expect(fruitMachine.results).toEqual(resultsMock);
   });
+
+  it('it selects one random colour', function(){
+    spyOn(Math,'random').andReturn(0.99);
+    expect(fruitMachine.resultPicker()).toEqual('yellow');
+  });
 });
