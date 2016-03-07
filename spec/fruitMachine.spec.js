@@ -88,5 +88,9 @@ describe('fruit machine', function() {
       expect(fruitMachine.checkIfJackpot).toBeDefined();
     });
 
+    it('returns false if slots are empty', function() {
+      expect(fruitMachine.checkIfJackpot()).toEqual(false);
+    });
   });
+
 });
