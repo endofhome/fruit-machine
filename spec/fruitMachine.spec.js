@@ -94,42 +94,42 @@ describe('fruit machine', function() {
 
   describe('check if jackpot', function(){
 
-    it('checkIfJackpot method exists', function() {
-      expect(fruitMachine.checkIfJackpot).toBeDefined();
+    it('isJackpot method exists', function() {
+      expect(fruitMachine.isJackpot).toBeDefined();
     });
 
     it('returns false if slots are empty', function() {
-      expect(fruitMachine.checkIfJackpot()).toEqual(false);
+      expect(fruitMachine.isJackpot()).toEqual(false);
     });
 
     it ('will return true if slots are all same colour', function() {
       spyOn(Math,'random').and.returnValue(0.24);
       fruitMachine.play();
-      expect(fruitMachine.checkIfJackpot()).toEqual(true);
+      expect(fruitMachine.isJackpot()).toEqual(true);
     });
 
     it ('will return false if two matching colours and then two other colours are picked', function() {
       spyOn(Math,'random').and.returnValues(0.24, 0.24, 0.74, 0.99);
       fruitMachine.play();
-      expect(fruitMachine.checkIfJackpot()).toEqual(false);
+      expect(fruitMachine.isJackpot()).toEqual(false);
     });
 
     it ('will return false if three matching colours and then one other colour are picked', function() {
       spyOn(Math,'random').and.returnValues(0.24, 0.24, 0.24, 0.99);
       fruitMachine.play();
-      expect(fruitMachine.checkIfJackpot()).toEqual(false);
+      expect(fruitMachine.isJackpot()).toEqual(false);
     });
 
     it ('will return false if one colour and then three matching colours are picked', function() {
       spyOn(Math,'random').and.returnValues(0.24, 0.99, 0.99, 0.99);
       fruitMachine.play();
-      expect(fruitMachine.checkIfJackpot()).toEqual(false);
+      expect(fruitMachine.isJackpot()).toEqual(false);
     });
 
     it ('will return false if different colours are picked', function() {
       spyOn(Math,'random').and.returnValues(0.24, 0.49, 0.74, 0.99); 
       fruitMachine.play();
-      expect(fruitMachine.checkIfJackpot()).toEqual(false);
+      expect(fruitMachine.isJackpot()).toEqual(false);
     });
   });
 

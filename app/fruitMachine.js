@@ -16,7 +16,7 @@ FruitMachine.prototype.play = function() {
   for (i=0; i<4; i++) {
     this.slots[i] = this.resultPicker();
   }
-  if (this.checkIfJackpot() === true) {
+  if (this.isJackpot() === true) {
     return this.jackpot();
   }
 };
@@ -27,7 +27,7 @@ FruitMachine.prototype.jackpot = function() {
   return result;
 };
 
-FruitMachine.prototype.checkIfJackpot = function() {
+FruitMachine.prototype.isJackpot = function() {
   var result = false,
       invalid = '',
       i;
