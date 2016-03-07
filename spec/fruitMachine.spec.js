@@ -91,6 +91,17 @@ describe('fruit machine', function() {
     it('returns false if slots are empty', function() {
       expect(fruitMachine.checkIfJackpot()).toEqual(false);
     });
+
+    it ('will return true if slots are all same colour', function() {
+      spyOn(Math,'random').andReturn(0.24);
+      fruitMachine.play();
+      expect(fruitMachine.checkIfJackpot()).toEqual(true);
+    });
+
+    it ('will return false if diffrent colours are picked', function() {
+      fruitMachine.slots = resultsMock;
+      expect(fruitMachine.checkIfJackpot()).toEqual(false);
+    });
   });
 
 });

@@ -25,16 +25,19 @@ FruitMachine.prototype.jackpot = function() {
 };
 
 FruitMachine.prototype.checkIfJackpot = function() {
-  var result = false, 
-      invalid = '', 
+  var result = false,
+      invalid = '',
       i;
 
   for (i=1; i<4; i++) {
-    if ((this.slots[0] === invalid) || ((this.slots[0] === this.slots[i]) && (this.slots[i] !== invalid))) {
+    if (this.slots[0] === invalid) {
+      break;
+    }
+    if ((this.slots[0] !== this.slots[i]) || (this.slots[i] === invalid)) {
       break;
     }
     result = true;
-  };
+  }
   return result;
 };
 
