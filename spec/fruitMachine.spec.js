@@ -44,4 +44,12 @@ describe('fruit machine', function() {
       expect(fruitMachine.resultPicker()).toEqual('yellow');
     });
   });
+
+  describe('play', function(){
+
+    it('play method exists', function () {
+      expect(fruitMachine.play).toBeDefined();
+    });
+
+  });
 });

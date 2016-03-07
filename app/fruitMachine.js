@@ -10,4 +10,8 @@ FruitMachine.prototype.resultPicker = function (){
   return result;
 };
 
+FruitMachine.prototype.play = function (){
+
+};
+
 module.exports = FruitMachine;
