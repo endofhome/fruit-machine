@@ -3,6 +3,7 @@
 var FruitMachine = function() {
   this.results = ['black', 'white', 'green', 'yellow'];
   this.slots = ['', '', '', ''];
+  this.coinBox = 0;
 };
 
 FruitMachine.prototype.resultPicker = function() {

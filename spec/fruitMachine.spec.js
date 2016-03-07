@@ -19,6 +19,10 @@ describe('fruit machine', function() {
     it('has four empty slots', function() {
       expect(fruitMachine.slots).toEqual(slotsMock);
     });
+
+    it('contains money', function() {
+      expect(fruitMachine.coinBox).toEqual(0);
+    });
   });
 
 
@@ -57,4 +61,6 @@ describe('fruit machine', function() {
       expect(fruitMachine.slots).toEqual(['black', 'black', 'black', 'black']);
     });
   });
+
+
 });
