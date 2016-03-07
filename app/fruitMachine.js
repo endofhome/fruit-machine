@@ -24,4 +24,8 @@ FruitMachine.prototype.jackpot = function() {
   return result;
 };
 
+FruitMachine.prototype.checkIfJackpot = function() {
+
+};
+
 module.exports = FruitMachine;

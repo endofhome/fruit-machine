@@ -73,12 +73,20 @@ describe('fruit machine', function() {
     });
 
     it('contents of coin box are returned', function() {
-      expect(fruitMachine.jackpot()).toEqual(10);      
+      expect(fruitMachine.jackpot()).toEqual(10);
     });
 
     it('coin box is emptied', function() {
       fruitMachine.jackpot();
       expect(fruitMachine.coinBox).toEqual(0);
     });
+  });
+
+  describe('check if jackpot', function(){
+
+    it('checkIfJackpot method exists', function() {
+      expect(fruitMachine.checkIfJackpot).toBeDefined();
+    });
+
   });
 });
