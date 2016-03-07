@@ -18,4 +18,7 @@ FruitMachine.prototype.play = function() {
   };
 };
 
+FruitMachine.prototype.jackpot = function() {
+};
+
 module.exports = FruitMachine;

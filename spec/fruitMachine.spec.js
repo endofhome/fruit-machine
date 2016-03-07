@@ -49,7 +49,7 @@ describe('fruit machine', function() {
     });
   });
 
-  describe('play', function(){
+  describe('play', function() {
 
     it('play method exists', function() {
       expect(fruitMachine.play).toBeDefined();
@@ -62,5 +62,10 @@ describe('fruit machine', function() {
     });
   });
 
+  describe('jackpot', function() {
 
+    it('jackpot method exists', function() {
+      expect(fruitMachine.jackpot).toBeDefined();
+    });
+  });
 });
