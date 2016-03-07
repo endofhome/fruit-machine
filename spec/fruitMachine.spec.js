@@ -39,7 +39,7 @@ describe('fruit machine', function() {
       expect(fruitMachine.resultPicker()).toEqual('green');
     });
 
-    it('selects yellow sometimes', function() {
+    it('randomly selects yellow sometimes', function() {
       spyOn(Math,'random').andReturn(0.99);
       expect(fruitMachine.resultPicker()).toEqual('yellow');
     });
@@ -47,9 +47,14 @@ describe('fruit machine', function() {
 
   describe('play', function(){
 
-    it('play method exists', function () {
+    it('play method exists', function() {
       expect(fruitMachine.play).toBeDefined();
     });
 
+    it('fills the four slots with results', function() {
+      spyOn(Math,'random').andReturn(0.24);
+      fruitMachine.play();
+      expect(fruitMachine.slots).toEqual(['black', 'black', 'black', 'black']);
+    });
   });
 });
