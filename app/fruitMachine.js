@@ -2,6 +2,7 @@
 
 var FruitMachine = function() {
   this.results = ['black', 'white', 'green', 'yellow'];
+  this.slots = ['', '', '', ''];
 };
 
 FruitMachine.prototype.resultPicker = function (){

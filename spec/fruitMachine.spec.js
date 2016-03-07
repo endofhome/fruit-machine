@@ -3,6 +3,7 @@ var FruitMachine = require('../app/fruitMachine.js');
 describe('fruit machine', function() {
   var fruitMachine;
   var resultsMock = ['black', 'white', 'green', 'yellow'];
+  var slotsMock = ['', '', '', ''];
 
   beforeEach(function() {
     fruitMachine = new FruitMachine();
@@ -13,6 +14,10 @@ describe('fruit machine', function() {
 
     it('stores possible results in an array', function() {
       expect(fruitMachine.results).toEqual(resultsMock);
+    });
+
+    it('has four empty slots', function() {
+      expect(fruitMachine.slots).toEqual(slotsMock);
     });
   });
 
