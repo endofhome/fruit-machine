@@ -9,7 +9,6 @@ describe('fruit machine', function() {
     fruitMachine = new FruitMachine();
   });
 
-
   describe('initialization', function() {
 
     it('stores possible results in an array', function() {
@@ -29,22 +28,22 @@ describe('fruit machine', function() {
   describe('resultPicker', function() {
 
     it('randomly selects black sometimes', function() {
-      spyOn(Math,'random').andReturn(0.24);
+      spyOn(Math,'random').and.returnValue(0.24);
       expect(fruitMachine.resultPicker()).toEqual('black');
     });
 
     it('randomly selects white sometimes', function() {
-      spyOn(Math,'random').andReturn(0.49);
+      spyOn(Math,'random').and.returnValue(0.49);
       expect(fruitMachine.resultPicker()).toEqual('white');
     });
 
     it('randomly selects green sometimes', function() {
-      spyOn(Math,'random').andReturn(0.74);
+      spyOn(Math,'random').and.returnValue(0.74);
       expect(fruitMachine.resultPicker()).toEqual('green');
     });
 
     it('randomly selects yellow sometimes', function() {
-      spyOn(Math,'random').andReturn(0.99);
+      spyOn(Math,'random').and.returnValue(0.99);
       expect(fruitMachine.resultPicker()).toEqual('yellow');
     });
   });
@@ -56,9 +55,20 @@ describe('fruit machine', function() {
     });
 
     it('fills the four slots with results', function() {
-      spyOn(Math,'random').andReturn(0.24);
+      spyOn(Math,'random').and.returnValue(0.24);
       fruitMachine.play();
       expect(fruitMachine.slots).toEqual(['black', 'black', 'black', 'black']);
+    });
+
+    it('returns the contents of the coin box if jackpot', function() {
+      fruitMachine.coinBox = 10;
+      spyOn(Math,'random').and.returnValue(0.24);
+      expect(fruitMachine.play()).toEqual(10);
+    });
+
+    it('returns nothing if not jackpot', function() {
+      spyOn(Math,'random').and.returnValues(0.24, 0.49, 0.74, 0.99);
+      expect(fruitMachine.play()).toEqual(undefined);
     });
   });
 
@@ -93,13 +103,32 @@ describe('fruit machine', function() {
     });
 
     it ('will return true if slots are all same colour', function() {
-      spyOn(Math,'random').andReturn(0.24);
+      spyOn(Math,'random').and.returnValue(0.24);
       fruitMachine.play();
       expect(fruitMachine.checkIfJackpot()).toEqual(true);
     });
 
-    it ('will return false if diffrent colours are picked', function() {
-      fruitMachine.slots = resultsMock;
+    it ('will return false if two matching colours and then two other colours are picked', function() {
+      spyOn(Math,'random').and.returnValues(0.24, 0.24, 0.74, 0.99);
+      fruitMachine.play();
+      expect(fruitMachine.checkIfJackpot()).toEqual(false);
+    });
+
+    it ('will return false if three matching colours and then one other colour are picked', function() {
+      spyOn(Math,'random').and.returnValues(0.24, 0.24, 0.24, 0.99);
+      fruitMachine.play();
+      expect(fruitMachine.checkIfJackpot()).toEqual(false);
+    });
+
+    it ('will return false if one colour and then three matching colours are picked', function() {
+      spyOn(Math,'random').and.returnValues(0.24, 0.99, 0.99, 0.99);
+      fruitMachine.play();
+      expect(fruitMachine.checkIfJackpot()).toEqual(false);
+    });
+
+    it ('will return false if different colours are picked', function() {
+      spyOn(Math,'random').and.returnValues(0.24, 0.49, 0.74, 0.99); 
+      fruitMachine.play();
       expect(fruitMachine.checkIfJackpot()).toEqual(false);
     });
   });

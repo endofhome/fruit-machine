@@ -16,6 +16,9 @@ FruitMachine.prototype.play = function() {
   for (i=0; i<4; i++) {
     this.slots[i] = this.resultPicker();
   }
+  if (this.checkIfJackpot() === true) {
+    return this.jackpot();
+  }
 };
 
 FruitMachine.prototype.jackpot = function() {
@@ -33,7 +36,9 @@ FruitMachine.prototype.checkIfJackpot = function() {
     if ((this.slots[0] === invalid) || ((this.slots[0] !== this.slots[i]) || (this.slots[i] === invalid))) {
       break;
     }
-    result = true;
+    if (i === 3) {
+      result = true;
+    }
   }
   return result;
 };
