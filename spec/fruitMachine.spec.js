@@ -67,5 +67,11 @@ describe('fruit machine', function() {
     it('jackpot method exists', function() {
       expect(fruitMachine.jackpot).toBeDefined();
     });
+
+    it('coin box is emptied', function() {
+      fruitMachine.coinBox = 10;
+      fruitMachine.jackpot();
+      expect(fruitMachine.coinBox).toEqual(0);
+    });
   });
 });

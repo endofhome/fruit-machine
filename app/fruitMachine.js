@@ -15,10 +15,11 @@ FruitMachine.prototype.play = function() {
   var i;
   for (i=0; i<4; i++) {
     this.slots[i] = this.resultPicker();
-  };
+  }
 };
 
 FruitMachine.prototype.jackpot = function() {
+  this.coinBox = 0;
 };
 
 module.exports = FruitMachine;
