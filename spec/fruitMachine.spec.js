@@ -64,12 +64,19 @@ describe('fruit machine', function() {
 
   describe('jackpot', function() {
 
+    beforeEach(function() {
+      fruitMachine.coinBox = 10;
+    });
+
     it('jackpot method exists', function() {
       expect(fruitMachine.jackpot).toBeDefined();
     });
 
+    it('contents of coin box are returned', function() {
+      expect(fruitMachine.jackpot()).toEqual(10);      
+    });
+
     it('coin box is emptied', function() {
-      fruitMachine.coinBox = 10;
       fruitMachine.jackpot();
       expect(fruitMachine.coinBox).toEqual(0);
     });
