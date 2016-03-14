@@ -23,7 +23,10 @@ If the machine does not have enought money to pay a prize it should credit the p
 ###Usage
 
 Clone this repo.
-At present there is no GUI so run the code via the Chrome console or your preferred REPL.
+
+At present there is no GUI so run the code via the Node REPL or the Chrome console.
+
+More usage instructions coming soon.
 
 
 ###Tests
